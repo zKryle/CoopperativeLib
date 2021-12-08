@@ -1,0 +1,15 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:beach": "2021-12-08 12:33:32 +0100",
+      "minecraft:sparse_jungle": "2021-12-08 12:29:37 +0100",
+      "minecraft:lukewarm_ocean": "2021-12-08 12:31:00 +0100",
+      "minecraft:river": "2021-12-08 12:30:37 +0100",
+      "minecraft:forest": "2021-12-08 12:29:59 +0100",
+      "minecraft:flower_forest": "2021-12-08 12:31:15 +0100",
+      "minecraft:plains": "2021-12-08 12:28:52 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 2860
+}

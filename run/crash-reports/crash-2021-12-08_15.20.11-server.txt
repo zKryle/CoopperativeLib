@@ -1,0 +1,172 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 08/12/21, 15:20
+Description: Exception generating new chunk
+
+java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
+	at net.minecraft.world.level.levelgen.NoiseSampler.getVeinType(NoiseSampler.java:962) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:customveins.mixins.json:MixinNoiseSampler,pl:mixin:A}
+	at net.minecraft.world.level.levelgen.NoiseSampler.md343628$lambda$makeOreVeinifier$1$0(NoiseSampler.java:940) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:customveins.mixins.json:MixinNoiseSampler,pl:mixin:A}
+	at net.minecraft.world.level.levelgen.NoiseChunk.oreVeinify(NoiseChunk.java:186) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:mixin,re:classloading}
+	at net.minecraft.world.level.levelgen.material.MaterialRuleList.apply(MaterialRuleList.java:20) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.iterateNoiseColumn(NoiseBasedChunkGenerator.java:193) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.getBaseColumn(NoiseBasedChunkGenerator.java:163) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.levelgen.structure.NetherFossilFeature.pieceGeneratorSupplier(NetherFossilFeature.java:40) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.feature.StructureFeature.generate(StructureFeature.java:233) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature.generate(ConfiguredStructureFeature.java:36) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkGenerator.createStructures(ChunkGenerator.java:427) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$2(ChunkStatus.java:49) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:262) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$20(ChunkMap.java:585) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-4.0.26.jar%2343!:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$22(ChunkMap.java:583) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?] {}
+	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.lambda$message$1(ChunkTaskPriorityQueueSorter.java:58) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollTask(ProcessorMailbox.java:91) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollUntil(ProcessorMailbox.java:146) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.run(ProcessorMailbox.java:102) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Stacktrace:
+	at net.minecraft.world.level.levelgen.NoiseSampler.getVeinType(NoiseSampler.java:962) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:customveins.mixins.json:MixinNoiseSampler,pl:mixin:A}
+	at net.minecraft.world.level.levelgen.NoiseSampler.md343628$lambda$makeOreVeinifier$1$0(NoiseSampler.java:940) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:customveins.mixins.json:MixinNoiseSampler,pl:mixin:A}
+	at net.minecraft.world.level.levelgen.NoiseChunk.oreVeinify(NoiseChunk.java:186) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:mixin,re:classloading}
+	at net.minecraft.world.level.levelgen.material.MaterialRuleList.apply(MaterialRuleList.java:20) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.iterateNoiseColumn(NoiseBasedChunkGenerator.java:193) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator.getBaseColumn(NoiseBasedChunkGenerator.java:163) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.levelgen.structure.NetherFossilFeature.pieceGeneratorSupplier(NetherFossilFeature.java:40) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.feature.StructureFeature.generate(StructureFeature.java:233) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.levelgen.feature.ConfiguredStructureFeature.generate(ConfiguredStructureFeature.java:36) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkGenerator.createStructures(ChunkGenerator.java:427) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.world.level.chunk.ChunkStatus.lambda$static$2(ChunkStatus.java:49) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.chunk.ChunkStatus.generate(ChunkStatus.java:262) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$20(ChunkMap.java:585) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-4.0.26.jar%2343!:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$22(ChunkMap.java:583) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?] {}
+	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.lambda$message$1(ChunkTaskPriorityQueueSorter.java:58) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollTask(ProcessorMailbox.java:91) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollUntil(ProcessorMailbox.java:146) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.run(ProcessorMailbox.java:102) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?] {}
+-- Chunk to be generated --
+Details:
+	Location: 12,30
+	Position hash: 128849018892
+	Generator: net.minecraft.world.level.levelgen.NoiseBasedChunkGenerator@5ae092b7
+Stacktrace:
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$20(ChunkMap.java:585) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at com.mojang.datafixers.util.Either$Left.map(Either.java:38) ~[datafixerupper-4.0.26.jar%2343!:?] {}
+	at net.minecraft.server.level.ChunkMap.lambda$scheduleChunkGeneration$22(ChunkMap.java:583) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150) ~[?:?] {}
+	at java.util.concurrent.CompletableFuture$Completion.run(CompletableFuture.java:482) ~[?:?] {}
+	at net.minecraft.server.level.ChunkTaskPriorityQueueSorter.lambda$message$1(ChunkTaskPriorityQueueSorter.java:58) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollTask(ProcessorMailbox.java:91) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.pollUntil(ProcessorMailbox.java:146) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at net.minecraft.util.thread.ProcessorMailbox.run(ProcessorMailbox.java:102) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading}
+	at java.util.concurrent.ForkJoinTask$RunnableExecuteAction.exec(ForkJoinTask.java:1395) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec$$$capture(ForkJoinTask.java:373) ~[?:?] {}
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655) ~[?:?] {}
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622) ~[?:?] {}
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165) ~[?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayer['Dev'/599, l='ServerLevel[New World]', x=467.79, y=-8.31, z=115.89]]
+	Chunk stats: 3938
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (64,69,-160), Section: (at 0,5,0 in 4,4,-10; chunk contains blocks 64,-64,-160 to 79,319,-145), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Level time: 3525 game time, 3525 day time
+	Level name: New World
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 153682 (now: false), thunder time: 41252 (now: false)
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:871) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:808) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:86) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:668) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:258) ~[forge-1.18-38.0.15_mapped_official_1.18.jar%2377!:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:833) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18
+	Minecraft Version ID: 1.18
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.1, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 1949247392 bytes (1858 MiB) / 4194304000 bytes (4000 MiB) up to 8573157376 bytes (8176 MiB)
+	CPUs: 16
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 7 1700 Eight-Core Processor          
+	Identifier: AuthenticAMD Family 23 Model 1 Stepping 1
+	Microarchitecture: Zen
+	Frequency (GHz): 2,99
+	Number of physical packages: 1
+	Number of physical CPUs: 8
+	Number of logical CPUs: 16
+	Graphics card #0 name: NVIDIA GeForce RTX 2060
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095,00
+	Graphics card #0 deviceId: 0x1f08
+	Graphics card #0 versionInfo: DriverVersion=30.0.14.9676
+	Memory slot #0 capacity (MB): 16384,00
+	Memory slot #0 clockSpeed (GHz): 3,20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 16384,00
+	Memory slot #1 clockSpeed (GHz): 3,20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 37564,77
+	Virtual memory used (MB): 22936,73
+	Swap memory total (MB): 4864,00
+	Swap memory used (MB): 49,82
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	ModLauncher: 9.0.7+91+master.8569cdf
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		 mixin PLUGINSERVICE 
+		 eventbus PLUGINSERVICE 
+		 object_holder_definalize PLUGINSERVICE 
+		 runtime_enum_extender PLUGINSERVICE 
+		 capability_token_subclass PLUGINSERVICE 
+		 accesstransformer PLUGINSERVICE 
+		 runtimedistcleaner PLUGINSERVICE 
+		 mixin TRANSFORMATIONSERVICE 
+		 fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		javafml@null
+	Mod List: 
+		forge-1.18-38.0.15_mapped_official_1.18.jar       |Minecraft                     |minecraft                     |1.18                |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		main                                              |Example Mod                   |customveins                   |0.0NONE             |DONE      |Manifest: NOSIGNATURE
+		                                                  |Forge                         |forge                         |38.0.15             |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 3959b26a-2eba-4830-ac18-6a4f7b198b37
+	FML: 38.0
+	Forge: net.minecraftforge:38.0.15
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/599, l='ServerLevel[New World]', x=467.79, y=-8.31, z=115.89]]
+	Data Packs: vanilla, mod:customveins, mod:forge
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'

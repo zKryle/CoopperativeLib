@@ -1,0 +1,13 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:deep_ocean": "2021-12-08 15:19:48 +0100",
+      "minecraft:stony_shore": "2021-12-08 15:17:15 +0100",
+      "minecraft:forest": "2021-12-08 15:17:52 +0100",
+      "minecraft:ocean": "2021-12-08 15:17:56 +0100",
+      "minecraft:old_growth_birch_forest": "2021-12-08 15:17:31 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 2860
+}

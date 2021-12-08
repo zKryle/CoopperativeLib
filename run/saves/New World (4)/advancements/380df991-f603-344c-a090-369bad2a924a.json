@@ -1,0 +1,17 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:birch_forest": "2021-12-08 12:25:09 +0100",
+      "minecraft:beach": "2021-12-08 12:21:11 +0100",
+      "minecraft:sparse_jungle": "2021-12-08 12:25:14 +0100",
+      "minecraft:river": "2021-12-08 12:21:02 +0100",
+      "minecraft:dripstone_caves": "2021-12-08 12:23:38 +0100",
+      "minecraft:forest": "2021-12-08 12:21:12 +0100",
+      "minecraft:ocean": "2021-12-08 12:21:03 +0100",
+      "minecraft:jungle": "2021-12-08 12:25:11 +0100",
+      "minecraft:plains": "2021-12-08 12:20:27 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 2860
+}

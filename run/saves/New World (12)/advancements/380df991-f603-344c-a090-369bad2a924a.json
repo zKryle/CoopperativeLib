@@ -1,0 +1,24 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:snowy_slopes": "2021-12-08 21:21:25 +0100",
+      "minecraft:taiga": "2021-12-08 21:18:13 +0100",
+      "minecraft:frozen_river": "2021-12-08 20:52:01 +0100",
+      "minecraft:beach": "2021-12-08 21:18:16 +0100",
+      "minecraft:snowy_plains": "2021-12-08 20:52:09 +0100",
+      "minecraft:snowy_taiga": "2021-12-08 20:51:56 +0100",
+      "minecraft:dripstone_caves": "2021-12-08 21:18:33 +0100",
+      "minecraft:jagged_peaks": "2021-12-08 21:21:03 +0100",
+      "minecraft:cold_ocean": "2021-12-08 21:19:09 +0100",
+      "minecraft:forest": "2021-12-08 21:19:27 +0100",
+      "minecraft:ice_spikes": "2021-12-08 20:53:04 +0100",
+      "minecraft:frozen_ocean": "2021-12-08 20:52:07 +0100",
+      "minecraft:windswept_forest": "2021-12-08 21:19:36 +0100",
+      "minecraft:snowy_beach": "2021-12-08 20:51:32 +0100",
+      "minecraft:meadow": "2021-12-08 21:22:16 +0100",
+      "minecraft:plains": "2021-12-08 21:22:12 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 2860
+}

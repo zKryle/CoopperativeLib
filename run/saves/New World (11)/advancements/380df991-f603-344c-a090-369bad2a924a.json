@@ -1,0 +1,17 @@
+{
+  "minecraft:adventure/adventuring_time": {
+    "criteria": {
+      "minecraft:frozen_river": "2021-12-08 19:20:55 +0100",
+      "minecraft:beach": "2021-12-08 19:16:38 +0100",
+      "minecraft:river": "2021-12-08 19:20:52 +0100",
+      "minecraft:snowy_plains": "2021-12-08 19:15:53 +0100",
+      "minecraft:cold_ocean": "2021-12-08 19:16:31 +0100",
+      "minecraft:forest": "2021-12-08 19:13:04 +0100",
+      "minecraft:frozen_ocean": "2021-12-08 19:16:22 +0100",
+      "minecraft:deep_frozen_ocean": "2021-12-08 19:19:38 +0100",
+      "minecraft:plains": "2021-12-08 19:16:44 +0100"
+    },
+    "done": false
+  },
+  "DataVersion": 2860
+}
