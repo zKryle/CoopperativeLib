@@ -24,14 +24,13 @@ public class CoopperativeLib
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         bus.addListener( this::registerVeins );
-        // Register ourselves for server and other game events we are interested in
+        // Register ourselves for server and other game events we are interested in.
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    // Register default MC Veins
+    // Register default vanilla veins.
     public void registerVeins( FMLCommonSetupEvent event ){
-        registerVein( new Vein( Blocks.TUFF, Blocks.DEEPSLATE_IRON_ORE, Blocks.RAW_IRON_BLOCK, -60, -8  ) );
         registerVein( new Vein( Blocks.GRANITE, Blocks.COPPER_ORE, Blocks.RAW_COPPER_BLOCK, 0, 50  ) );
-        LOGGER.atDebug().log("Successfully Registered Default Veins!");
+        registerVein( new Vein( Blocks.TUFF, Blocks.DEEPSLATE_IRON_ORE, Blocks.RAW_IRON_BLOCK, -60, -8  ) );
     }
 }
