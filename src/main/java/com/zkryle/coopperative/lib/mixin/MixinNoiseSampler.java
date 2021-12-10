@@ -1,4 +1,4 @@
-package com.zkryle.coopperative.lib.mixin.veins;
+package com.zkryle.coopperative.lib.mixin;
 
 import com.zkryle.coopperative.lib.veins.common.Vein;
 import net.minecraft.util.Mth;
@@ -46,7 +46,7 @@ public abstract class MixinNoiseSampler{
     /**
      * @author zKryle
      */
-    @Inject(at = @At("HEAD"), method = "makeOreVeinifier", cancellable = true)
+    @Inject(at = @At("HEAD"), method = "makeOreVeinifier(Lnet/minecraft/world/level/levelgen/NoiseChunk;Z)Lnet/minecraft/world/level/levelgen/NoiseChunk$BlockStateFiller;", cancellable = true)
     protected void makeOreVeinifier( NoiseChunk p_189058_ , boolean p_189059_ , CallbackInfoReturnable <NoiseChunk.BlockStateFiller> cir ){
         if(!p_189059_){
             cir.setReturnValue( ( p_189024_ , p_189025_ , p_189026_ ) -> null );
@@ -58,7 +58,7 @@ public abstract class MixinNoiseSampler{
             cir.setReturnValue( ( p_189024_ , p_189025_ , p_189026_ ) -> {
                         RandomSource randomsource = this.oreVeinsPositionalRandomFactory.at( p_189024_ , p_189025_ , p_189026_ );
                         double d0 = noisechunk$sampler.sample();
-                        Vein veinType = this.getVeinType( d0 , p_189025_ );
+                        Vein veinType = this.getModdedVeinType( d0 , p_189025_ );
                         if(veinType == null){
                             return blockstate;
                         }else if(randomsource.nextFloat() > 0.7F){
@@ -79,7 +79,7 @@ public abstract class MixinNoiseSampler{
     }
 
     @Unique
-    private Vein getVeinType( double p_189080_ , int p_189081_ ){
+    private Vein getModdedVeinType( double p_189080_ , int p_189081_ ){
         int clampedValue = (int) Math.max( 0 , Math.min( VEINS.size() - 1 , new Random().nextFloat() * VEINS.size() ) );
         Vein veinType = VEINS.get( clampedValue );
         int i = veinType.maxY() - p_189081_;

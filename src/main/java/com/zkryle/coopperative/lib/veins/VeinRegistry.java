@@ -17,7 +17,6 @@ public class VeinRegistry{
      * @author zKryle
      */
     public static void registerVein( Vein vein ){
-        System.out.println(VEINS);
         if(!isAlreadyRegistered(vein)){
             VEINS.add( vein );
             CoopperativeLib.LOGGER.atInfo().log( String.format("Vein with materials: %s , %s , %s and height: minY: %s , maxY: %s successfully registered!",
