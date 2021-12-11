@@ -8,13 +8,7 @@ import net.minecraft.world.level.levelgen.NoiseSampler;
 import net.minecraft.world.level.levelgen.PositionalRandomFactory;
 import net.minecraft.world.level.levelgen.RandomSource;
 import net.minecraft.world.level.levelgen.synth.NormalNoise;
-import org.spongepowered.asm.mixin.Final;
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Shadow;
-import org.spongepowered.asm.mixin.Unique;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+import org.spongepowered.asm.mixin.*;
 
 import java.util.Random;
 
@@ -43,38 +37,40 @@ public abstract class MixinNoiseSampler{
     @Shadow
     private NormalNoise gapNoise;
 
+
+    //@Inject(at = @At("RETURN"), method = "makeOreVeinifier(Lnet/minecraft/world/level/levelgen/NoiseChunk;Z)Lnet/minecraft/world/level/levelgen/NoiseChunk$BlockStateFiller;", cancellable = true)
+
     /**
      * @author zKryle
      */
-    @Inject(at = @At("HEAD"), method = "makeOreVeinifier(Lnet/minecraft/world/level/levelgen/NoiseChunk;Z)Lnet/minecraft/world/level/levelgen/NoiseChunk$BlockStateFiller;", cancellable = true)
-    protected void makeOreVeinifier( NoiseChunk p_189058_ , boolean p_189059_ , CallbackInfoReturnable <NoiseChunk.BlockStateFiller> cir ){
+    @Overwrite
+    protected NoiseChunk.BlockStateFiller makeOreVeinifier( NoiseChunk p_189058_ , boolean p_189059_ ){
         if(!p_189059_){
-            cir.setReturnValue( ( p_189024_ , p_189025_ , p_189026_ ) -> null );
+            return ( p_189024_ , p_189025_ , p_189026_ ) -> null;
         }else{
             NoiseChunk.Sampler noisechunk$sampler = this.veininess.instantiate( p_189058_ );
             NoiseChunk.Sampler noisechunk$sampler1 = this.veinA.instantiate( p_189058_ );
             NoiseChunk.Sampler noisechunk$sampler2 = this.veinB.instantiate( p_189058_ );
             BlockState blockstate = null;
-            cir.setReturnValue( ( p_189024_ , p_189025_ , p_189026_ ) -> {
-                        RandomSource randomsource = this.oreVeinsPositionalRandomFactory.at( p_189024_ , p_189025_ , p_189026_ );
-                        double d0 = noisechunk$sampler.sample();
-                        Vein veinType = this.getModdedVeinType( d0 , p_189025_ );
-                        if(veinType == null){
-                            return blockstate;
-                        }else if(randomsource.nextFloat() > 0.7F){
-                            return blockstate;
-                        }else if(this.isVein( noisechunk$sampler1.sample() , noisechunk$sampler2.sample() )){
-                            double d1 = Mth.clampedMap( Math.abs( d0 ) , (double) 0.4F , (double) 0.6F , (double) 0.1F , (double) 0.3F );
-                            if((double) randomsource.nextFloat() < d1 && this.gapNoise.getValue( (double) p_189024_ , (double) p_189025_ , (double) p_189026_ ) > (double) -0.3F){
-                                return randomsource.nextFloat() < 0.02F ? veinType.rawOreBlock() : veinType.ore();
-                            }else{
-                                return veinType.filler();
-                            }
-                        }else{
-                            return blockstate;
-                        }
+            return ( p_189024_ , p_189025_ , p_189026_ ) -> {
+                RandomSource randomsource = this.oreVeinsPositionalRandomFactory.at( p_189024_ , p_189025_ , p_189026_ );
+                double d0 = noisechunk$sampler.sample();
+                Vein veinType = this.getModdedVeinType( d0 , p_189025_ );
+                if(veinType == null){
+                    return blockstate;
+                }else if(randomsource.nextFloat() > 0.7F){
+                    return blockstate;
+                }else if(this.isVein( noisechunk$sampler1.sample() , noisechunk$sampler2.sample() )){
+                    double d1 = Mth.clampedMap( Math.abs( d0 ) , (double) 0.4F , (double) 0.6F , (double) 0.1F , (double) 0.3F );
+                    if((double) randomsource.nextFloat() < d1 && this.gapNoise.getValue( (double) p_189024_ , (double) p_189025_ , (double) p_189026_ ) > (double) -0.3F){
+                        return randomsource.nextFloat() < 0.02F ? veinType.rawOreBlock() : veinType.ore();
+                    }else{
+                        return veinType.filler();
                     }
-            );
+                }else{
+                    return blockstate;
+                }
+            };
         }
     }
 

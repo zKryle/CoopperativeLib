@@ -16,7 +16,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.0.3'
+version = '1.0'
 group = 'com.zkryle.coopperative' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'coopperativelib'
 
@@ -195,7 +195,7 @@ publishing {
         mavenJava(MavenPublication) {
             artifactId = "coopperativelib-1.18"
             groupId = "com.zkryle"
-            version = "1.0.3"
+            version = "1.0"
             artifacts = [jar]
         }
     }
